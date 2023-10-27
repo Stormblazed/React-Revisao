@@ -10,7 +10,7 @@ const Card = ({ id, titulo, capa }) => {
     const icone = !ehFavorito ? iconeFavoritar : iconeDesfavoritar;
     return (
         <div className={styles.container}>
-                <Link to={`/${id}` } className={styles.link}>
+                <Link to={`/videos/${id}` } className={styles.link}>
                 <img src={capa} alt={titulo} className={styles.capa} />
                 </Link>
                 <h2>{titulo}</h2>
