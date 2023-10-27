@@ -1,0 +1,12 @@
+.rodape{
+    display: flex;
+    justify-content: center;    
+    background-color: var(--preto);    
+}
+
+.direitoReservado{
+    color:var(--branco);
+    font-size: 18px;
+    font-weight: 400;    
+}
+
