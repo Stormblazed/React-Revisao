@@ -2,14 +2,22 @@ import Banner from 'Componentes/Banner'
 import styles from './Player.module.css'
 import Titulo from 'Componentes/Titulo'
 import { useParams } from 'react-router-dom'
-import videos from 'json/db.json'
 import NaoEncontrada from 'pages/NaoEncontrada'
+import { useEffect, useState } from 'react'
 
 const Player = () => {
     const parametros = useParams();
-    const video = videos.find((video) => {
-        return video.id === Number(parametros.id);
-    })
+    const [video, setVideo] = useState([])
+    
+
+    useEffect(() => {
+        fetch(`https://my-json-server.typicode.com/Stormblazed/react-revisao-api/videos?id=${parametros.id}`)
+            .then(resposta => resposta.json())
+            .then(dados => {
+                setVideo(...dados)
+            })
+    }, [])
+
     
     if(!video){
         return <NaoEncontrada />
